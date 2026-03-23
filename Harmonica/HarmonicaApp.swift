@@ -1,17 +1,27 @@
-//
-//  HarmonicaApp.swift
-//  Harmonica
-//
-//  Created by Bruno Rodrigues dos Santos on 19/03/26.
-//
-
 import SwiftUI
 
 @main
 struct HarmonicaApp: App {
+    @StateObject private var userSession = UserSession()
+    
+    init() {
+        let session = UserSession()
+        _userSession = StateObject(wrappedValue: session)
+    }
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            Group {
+                if userSession.isLoading {
+                    SplashView()
+                } else if userSession.isAuthenticated {
+                    HomeView()
+                        .environmentObject(userSession)
+                } else {
+                    LoginView()
+                        .environmentObject(userSession)
+                }
+            }
         }
     }
 }

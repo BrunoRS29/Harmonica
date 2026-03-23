@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXFileReference section */
-		7406DD4B2F6C2052002CB0B6 /* Harmonica.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Harmonica.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		74912F5B2F6CA36100D2C42F /* Harmonica.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Harmonica.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -33,16 +33,8 @@
 			isa = PBXGroup;
 			children = (
 				7406DD4D2F6C2052002CB0B6 /* Harmonica */,
-				7406DD4C2F6C2052002CB0B6 /* Products */,
+				74912F5B2F6CA36100D2C42F /* Harmonica.app */,
 			);
-			sourceTree = "<group>";
-		};
-		7406DD4C2F6C2052002CB0B6 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				7406DD4B2F6C2052002CB0B6 /* Harmonica.app */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -67,7 +59,7 @@
 			packageProductDependencies = (
 			);
 			productName = Harmonica;
-			productReference = 7406DD4B2F6C2052002CB0B6 /* Harmonica.app */;
+			productReference = 74912F5B2F6CA36100D2C42F /* Harmonica.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -95,7 +87,7 @@
 			mainGroup = 7406DD422F6C2052002CB0B6;
 			minimizedProjectReferenceProxies = 1;
 			preferredProjectObjectVersion = 77;
-			productRefGroup = 7406DD4C2F6C2052002CB0B6 /* Products */;
+			productRefGroup = 7406DD422F6C2052002CB0B6;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
