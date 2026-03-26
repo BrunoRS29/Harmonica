@@ -1,19 +1,27 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="24411" systemVersion="25D2128" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier="">
+    <entity name="CartItem" representedClassName="CartItem" syncable="YES" codeGenerationType="class">
+        <attribute name="brand" optional="YES" attributeType="String"/>
+        <attribute name="category" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="image" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="price" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="specs_color" optional="YES" attributeType="String"/>
+        <attribute name="specs_dimensions_cm" optional="YES" attributeType="String"/>
+        <attribute name="specs_primary_material" optional="YES" attributeType="String"/>
+        <attribute name="specs_weight_kg" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+    </entity>
     <entity name="Product" representedClassName="Product" syncable="YES" codeGenerationType="class">
         <attribute name="brand" optional="YES" attributeType="String"/>
         <attribute name="category" optional="YES" attributeType="String"/>
         <attribute name="id" optional="YES" attributeType="String"/>
         <attribute name="image" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
-        <attribute name="price" optional="YES" attributeType="String"/>
-        <relationship name="specs" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Specs" inverseName="product" inverseEntity="Specs"/>
-    </entity>
-    <entity name="Specs" representedClassName="Specs" syncable="YES" codeGenerationType="class">
-        <attribute name="color" optional="YES" attributeType="String"/>
-        <attribute name="dimensions_cm" optional="YES" attributeType="String"/>
-        <attribute name="primary_material" optional="YES" attributeType="String"/>
-        <attribute name="weight_kg" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <relationship name="product" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Product" inverseName="specs" inverseEntity="Product"/>
+        <attribute name="price" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="specs_color" optional="YES" attributeType="String"/>
+        <attribute name="specs_dimensions_cm" optional="YES" attributeType="String"/>
+        <attribute name="specs_primary_material" optional="YES" attributeType="String"/>
+        <attribute name="specs_weight_kg" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
     </entity>
 </model>

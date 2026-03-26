@@ -15,7 +15,7 @@ struct HarmonicaApp: App {
                 if userSession.isLoading {
                     SplashView()
                 } else if userSession.isAuthenticated {
-                    HomeView()
+                    MainView()
                         .environmentObject(userSession)
                 } else {
                     LoginView()
