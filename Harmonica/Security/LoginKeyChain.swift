@@ -236,58 +236,6 @@ class KeychainHelper {
         }
     }
     
-    static func saveFavoritos(_ favoritos: [String], for userID: String) throws {
-        guard let data = try? JSONEncoder().encode(favoritos) else {
-            throw KeychainError.invalidData
-        }
-        
-        let query: [String: Any] = [
-            kSecClass as String: kSecClassGenericPassword,
-            kSecAttrAccount as String: "favoritos_\(userID)",
-            kSecValueData as String: data
-        ]
-        
-        SecItemDelete(query as CFDictionary)
-        let status = SecItemAdd(query as CFDictionary, nil)
-        
-        guard status == errSecSuccess else {
-            throw KeychainError.saveFailed(status)
-        }
-    }
-    
-    static func getFavoritos(for userID: String) -> [String] {
-        let query: [String: Any] = [
-            kSecClass as String: kSecClassGenericPassword,
-            kSecAttrAccount as String: "favoritos_\(userID)",
-            kSecReturnData as String: true,
-            kSecMatchLimit as String: kSecMatchLimitOne
-        ]
-        
-        var result: AnyObject?
-        let status = SecItemCopyMatching(query as CFDictionary, &result)
-        
-        guard status == errSecSuccess,
-              let data = result as? Data,
-              let favoritos = try? JSONDecoder().decode([String].self, from: data) else {
-            return []
-        }
-        
-        return favoritos
-    }
-    
-    static func deleteFavoritos(for userID: String) throws {
-        let query: [String: Any] = [
-            kSecClass as String: kSecClassGenericPassword,
-            kSecAttrAccount as String: "favoritos_\(userID)"
-        ]
-        
-        let status = SecItemDelete(query as CFDictionary)
-        
-        guard status == errSecSuccess || status == errSecItemNotFound else {
-            throw KeychainError.saveFailed(status)
-        }
-    }
-    
     static func clearAll() {
         let query: [String: Any] = [
             kSecClass as String: kSecClassGenericPassword

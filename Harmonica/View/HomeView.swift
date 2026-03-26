@@ -3,7 +3,7 @@ import SwiftUI
 struct HomeView: View {
     @EnvironmentObject var userSession: UserSession
     @StateObject private var vm = ProductViewModel()
-    @StateObject private var cartVM = CartViewModel()
+    @EnvironmentObject var cartVM: CartViewModel
     
     @State private var showCart: Bool = false
     
@@ -108,10 +108,8 @@ struct HomeView: View {
             }
             .sheet(isPresented: $showCart) {
                 CartView()
-                    .environmentObject(cartVM)
             }
         }
-        .environmentObject(cartVM) // ← Passa para toda a NavigationStack
     }
 }
 
