@@ -5,15 +5,17 @@ struct SignInView: View {
     @EnvironmentObject var userSession: UserSession
     @Environment(\.dismiss) private var dismiss
     
+    @State private var showSuccessAlert = false
+    
     var body: some View {
         ZStack {
             Color("MainBlack")
                 .ignoresSafeArea()
             
             ScrollView {
-                VStack(spacing: 40) {
+                VStack() {
                     Spacer()
-                        .frame(height: 60)
+                        .frame(height: 20)
                     
                     logoField
                     signInField
@@ -36,6 +38,18 @@ struct SignInView: View {
                     }
                     .foregroundStyle(Color("MainGreen"))
                 }
+            }
+        }
+        .alert("Conta Criada!", isPresented: $showSuccessAlert) {
+            Button("OK") {
+                dismiss()
+            }
+        } message: {
+            Text("Sua conta foi criada com sucesso! Faça login para continuar.")
+        }
+        .onChange(of: viewModel.cadastroSucesso) { _, sucesso in
+            if sucesso {
+                showSuccessAlert = true
             }
         }
     }
@@ -89,7 +103,7 @@ struct SignInView: View {
                     .font(.caption)
                     .foregroundStyle(.white.opacity(0.8))
                 
-                TextField("email@example.com", text: $viewModel.email)
+                TextField("Seu email", text: $viewModel.email)
                     .foregroundStyle(.white.opacity(0.5))
                     .padding()
                     .background(Color.white.opacity(0.1))
@@ -98,6 +112,7 @@ struct SignInView: View {
                         RoundedRectangle(cornerRadius: 12)
                             .stroke(Color.white.opacity(0.3), lineWidth: 1)
                     )
+                    .foregroundStyle(.white)
                     .textInputAutocapitalization(.never)
                     .keyboardType(.emailAddress)
                     .autocorrectionDisabled()
@@ -199,11 +214,6 @@ struct SignInView: View {
                 )
                 .shadow(color: .black.opacity(0.3), radius: 20, x: 0, y: 10)
         )
-        .onChange(of: viewModel.cadastroSucesso) {
-            if viewModel.cadastroSucesso {
-                dismiss()
-            }
-        }
     }
 }
 

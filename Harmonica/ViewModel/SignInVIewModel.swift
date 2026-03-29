@@ -35,7 +35,7 @@ class SignInViewModel: ObservableObject {
         }
     }
     
-    private func validarCampos() -> Bool {
+    func validarCampos() -> Bool {
         guard !email.isEmpty else {
             mensagemErro = "Por favor, insira seu email"
             return false

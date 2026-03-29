@@ -4,32 +4,33 @@ struct CartView: View {
     @EnvironmentObject var cartVM: CartViewModel
     @Environment(\.dismiss) var dismiss
     
+    @State private var showPurchaseAlert = false
+    
     var body: some View {
         NavigationStack {
             ZStack {
                 Color("MainBlack").ignoresSafeArea()
                 
                 if cartVM.cartItems.isEmpty {
-                    // Carrinho vazio
                     VStack(spacing: 20) {
                         Image(systemName: "cart")
                             .font(.system(size: 80))
-                            .foregroundColor(.white.opacity(0.3))
+                            .foregroundStyle(.white.opacity(0.3))
                         
                         Text("Seu carrinho está vazio")
                             .font(.title2)
                             .fontWeight(.semibold)
-                            .foregroundColor(.white)
+                            .foregroundStyle(.white)
                         
                         Text("Adicione produtos para começar")
-                            .foregroundColor(.white.opacity(0.6))
+                            .foregroundStyle(.white.opacity(0.6))
                         
                         Button {
                             dismiss()
                         } label: {
                             Text("Continuar Comprando")
                                 .fontWeight(.semibold)
-                                .foregroundColor(.black)
+                                .foregroundStyle(.black)
                                 .padding(.horizontal, 24)
                                 .padding(.vertical, 12)
                                 .background(Color("MainGreen"))
@@ -39,7 +40,6 @@ struct CartView: View {
                     }
                     
                 } else {
-                    // Lista de produtos
                     VStack(spacing: 0) {
                         ScrollView {
                             VStack(spacing: 16) {
@@ -49,13 +49,12 @@ struct CartView: View {
                                 }
                             }
                             .padding()
-                            .padding(.bottom, 120) // Espaço para o footer
+                            .padding(.bottom, 120)
                         }
                         
                         Spacer()
                     }
                     
-                    // Footer fixo com total e botão
                     VStack(spacing: 0) {
                         Spacer()
                         
@@ -63,28 +62,26 @@ struct CartView: View {
                             Divider()
                                 .background(Color.white.opacity(0.2))
                             
-                            // Total
                             HStack {
                                 VStack(alignment: .leading, spacing: 4) {
                                     Text("Total")
                                         .font(.subheadline)
-                                        .foregroundColor(.white.opacity(0.7))
+                                        .foregroundStyle(.white.opacity(0.7))
                                     
                                     Text(cartVM.formattedTotalPrice)
                                         .font(.title)
                                         .fontWeight(.bold)
-                                        .foregroundColor(Color("MainGreen"))
+                                        .foregroundStyle(Color("MainGreen"))
                                 }
                                 
                                 Spacer()
                                 
                                 Button {
-                                    // Ação de finalizar compra
-                                    print("Finalizar compra")
+                                    showPurchaseAlert = true
                                 } label: {
                                     Text("Finalizar Compra")
                                         .fontWeight(.semibold)
-                                        .foregroundColor(.black)
+                                        .foregroundStyle(.black)
                                         .padding(.horizontal, 24)
                                         .padding(.vertical, 12)
                                         .background(Color("MainGreen"))
@@ -107,7 +104,7 @@ struct CartView: View {
                         dismiss()
                     } label: {
                         Image(systemName: "xmark")
-                            .foregroundColor(.white)
+                            .foregroundStyle(.white)
                     }
                 }
                 
@@ -117,10 +114,18 @@ struct CartView: View {
                             cartVM.clearCart()
                         } label: {
                             Text("Limpar")
-                                .foregroundColor(.red)
+                                .foregroundStyle(.red)
                         }
                     }
                 }
+            }
+            .alert("Compra Realizada!", isPresented: $showPurchaseAlert) {
+                Button("OK") {
+                    cartVM.clearCart()
+                    dismiss()
+                }
+            } message: {
+                Text("Seu pedido foi confirmado com sucesso!\nTotal: \(cartVM.formattedTotalPrice)")
             }
         }
     }
@@ -132,7 +137,6 @@ struct CartItemRow: View {
     
     var body: some View {
         HStack(spacing: 12) {
-            // Imagem
             AsyncImage(url: URL(string: item.image ?? "")) { phase in
                 switch phase {
                 case .empty:
@@ -148,7 +152,7 @@ struct CartItemRow: View {
                     Image(systemName: "photo")
                         .resizable()
                         .scaledToFit()
-                        .foregroundColor(.gray)
+                        .foregroundStyle(.gray)
                         .frame(width: 80, height: 80)
                 @unknown default:
                     EmptyView()
@@ -158,33 +162,31 @@ struct CartItemRow: View {
             .background(Color.white.opacity(0.05))
             .clipShape(RoundedRectangle(cornerRadius: 8))
             
-            // Informações
             VStack(alignment: .leading, spacing: 4) {
                 Text(item.name ?? "Produto")
                     .font(.headline)
-                    .foregroundColor(.white)
+                    .foregroundStyle(.white)
                     .lineLimit(2)
                 
                 Text(item.brand ?? "")
                     .font(.subheadline)
-                    .foregroundColor(.white.opacity(0.6))
+                    .foregroundStyle(.white.opacity(0.6))
                 
                 Text("R$ \(formatPrice(Int(item.price)))")
                     .font(.title3)
                     .fontWeight(.bold)
-                    .foregroundColor(Color("MainGreen"))
+                    .foregroundStyle(Color("MainGreen"))
             }
             
             Spacer()
             
-            // Botão de remover
             Button {
                 withAnimation {
                     cartVM.removeFromCart(item: item)
                 }
             } label: {
                 Image(systemName: "trash")
-                    .foregroundColor(.red)
+                    .foregroundStyle(.red)
                     .padding(8)
                     .background(Color.red.opacity(0.1))
                     .clipShape(Circle())

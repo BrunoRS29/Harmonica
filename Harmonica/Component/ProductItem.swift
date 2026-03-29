@@ -7,7 +7,6 @@ struct ProductItem: View {
         NavigationLink(destination: ProductDetailView(product: product)) {
             VStack(alignment: .leading, spacing: 8) {
                 
-                // Imagem do produto
                 AsyncImage(url: URL(string: product.image)) { phase in
                     switch phase {
                     case .empty:
@@ -21,7 +20,7 @@ struct ProductItem: View {
                         Image(systemName: "photo")
                             .resizable()
                             .scaledToFill()
-                            .foregroundColor(.gray)
+                            .foregroundStyle(.gray)
                     @unknown default:
                         EmptyView()
                     }
@@ -35,19 +34,19 @@ struct ProductItem: View {
                     Text(product.name)
                         .font(.headline)
                         .lineLimit(2)
-                        .foregroundColor(.white)
+                        .foregroundStyle(.white)
                         .frame(maxWidth: .infinity, minHeight: 40, alignment: .topLeading)
                     
                     // Marca
                     Text(product.brand)
                         .font(.subheadline)
-                        .foregroundColor(.white.opacity(0.6))
+                        .foregroundStyle(.white.opacity(0.6))
                     
                     // Preço
                     Text("R$ \(formatPrice(product.price))")
                         .font(.title3)
                         .fontWeight(.bold)
-                        .foregroundColor(Color("MainGreen"))
+                        .foregroundStyle(Color("MainGreen"))
                     
                 }
                 .padding(.horizontal, 8)

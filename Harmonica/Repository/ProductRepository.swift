@@ -6,11 +6,13 @@ enum NetworkError: Error {
     case httpError(code: Int)
 }
 
-class ProductRepository {
+class ProductRepository: ProductRepositoryProtocol {
+    
+    private let baseURL = "https://69c5423b8a5b6e2dec2c126d.mockapi.io/api/instruments/instruments/"
     
     func getProducts() async throws -> [ProductModel] {
         
-        guard let url = URL(string: "https://69c5423b8a5b6e2dec2c126d.mockapi.io/api/instruments/instruments/") else {
+        guard let url = URL(string: baseURL) else {
             print("❌ URL INVÁLIDA")
             throw NetworkError.invalidURL
         }
@@ -37,7 +39,7 @@ class ProductRepository {
     
     func postProduct(_ product: ProductModel) async throws -> ProductModel? {
             
-        guard let url = URL(string: "https://69c5423b8a5b6e2dec2c126d.mockapi.io/api/instruments/instruments/") else {
+        guard let url = URL(string: baseURL) else {
             print("❌ URL INVÁLIDA")
             throw NetworkError.invalidURL
         }
@@ -78,4 +80,3 @@ class ProductRepository {
         }
     }
 }
-

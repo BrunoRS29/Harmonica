@@ -6,8 +6,27 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXContainerItemProxy section */
+		74C89A942F7874A2002A8BBF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7406DD432F6C2052002CB0B6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7406DD4A2F6C2052002CB0B6;
+			remoteInfo = Harmonica;
+		};
+		74C89ACF2F79AD7C002A8BBF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7406DD432F6C2052002CB0B6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7406DD4A2F6C2052002CB0B6;
+			remoteInfo = Harmonica;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		74912F5B2F6CA36100D2C42F /* Harmonica.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Harmonica.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		74C89A902F7874A2002A8BBF /* HarmonicaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HarmonicaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		74C89AC92F79AD7C002A8BBF /* HarmonicaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HarmonicaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -16,10 +35,34 @@
 			path = Harmonica;
 			sourceTree = "<group>";
 		};
+		74C89A912F7874A2002A8BBF /* HarmonicaTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = HarmonicaTests;
+			sourceTree = "<group>";
+		};
+		74C89ACA2F79AD7C002A8BBF /* HarmonicaUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = HarmonicaUITests;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		7406DD482F6C2052002CB0B6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		74C89A8D2F7874A2002A8BBF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		74C89AC62F79AD7C002A8BBF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -34,6 +77,10 @@
 			children = (
 				7406DD4D2F6C2052002CB0B6 /* Harmonica */,
 				74912F5B2F6CA36100D2C42F /* Harmonica.app */,
+				74C89A902F7874A2002A8BBF /* HarmonicaTests.xctest */,
+				74C89A912F7874A2002A8BBF /* HarmonicaTests */,
+				74C89AC92F79AD7C002A8BBF /* HarmonicaUITests.xctest */,
+				74C89ACA2F79AD7C002A8BBF /* HarmonicaUITests */,
 			);
 			sourceTree = "<group>";
 		};
@@ -62,6 +109,52 @@
 			productReference = 74912F5B2F6CA36100D2C42F /* Harmonica.app */;
 			productType = "com.apple.product-type.application";
 		};
+		74C89A8F2F7874A2002A8BBF /* HarmonicaTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 74C89A962F7874A2002A8BBF /* Build configuration list for PBXNativeTarget "HarmonicaTests" */;
+			buildPhases = (
+				74C89A8C2F7874A2002A8BBF /* Sources */,
+				74C89A8D2F7874A2002A8BBF /* Frameworks */,
+				74C89A8E2F7874A2002A8BBF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				74C89A952F7874A2002A8BBF /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				74C89A912F7874A2002A8BBF /* HarmonicaTests */,
+			);
+			name = HarmonicaTests;
+			packageProductDependencies = (
+			);
+			productName = HarmonicaTests;
+			productReference = 74C89A902F7874A2002A8BBF /* HarmonicaTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		74C89AC82F79AD7C002A8BBF /* HarmonicaUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 74C89AD12F79AD7C002A8BBF /* Build configuration list for PBXNativeTarget "HarmonicaUITests" */;
+			buildPhases = (
+				74C89AC52F79AD7C002A8BBF /* Sources */,
+				74C89AC62F79AD7C002A8BBF /* Frameworks */,
+				74C89AC72F79AD7C002A8BBF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				74C89AD02F79AD7C002A8BBF /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				74C89ACA2F79AD7C002A8BBF /* HarmonicaUITests */,
+			);
+			name = HarmonicaUITests;
+			packageProductDependencies = (
+			);
+			productName = HarmonicaUITests;
+			productReference = 74C89AC92F79AD7C002A8BBF /* HarmonicaUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -74,6 +167,14 @@
 				TargetAttributes = {
 					7406DD4A2F6C2052002CB0B6 = {
 						CreatedOnToolsVersion = 26.1.1;
+					};
+					74C89A8F2F7874A2002A8BBF = {
+						CreatedOnToolsVersion = 26.1.1;
+						TestTargetID = 7406DD4A2F6C2052002CB0B6;
+					};
+					74C89AC82F79AD7C002A8BBF = {
+						CreatedOnToolsVersion = 26.1.1;
+						TestTargetID = 7406DD4A2F6C2052002CB0B6;
 					};
 				};
 			};
@@ -92,12 +193,28 @@
 			projectRoot = "";
 			targets = (
 				7406DD4A2F6C2052002CB0B6 /* Harmonica */,
+				74C89A8F2F7874A2002A8BBF /* HarmonicaTests */,
+				74C89AC82F79AD7C002A8BBF /* HarmonicaUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		7406DD492F6C2052002CB0B6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		74C89A8E2F7874A2002A8BBF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		74C89AC72F79AD7C002A8BBF /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -114,7 +231,34 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		74C89A8C2F7874A2002A8BBF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		74C89AC52F79AD7C002A8BBF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		74C89A952F7874A2002A8BBF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7406DD4A2F6C2052002CB0B6 /* Harmonica */;
+			targetProxy = 74C89A942F7874A2002A8BBF /* PBXContainerItemProxy */;
+		};
+		74C89AD02F79AD7C002A8BBF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7406DD4A2F6C2052002CB0B6 /* Harmonica */;
+			targetProxy = 74C89ACF2F79AD7C002A8BBF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		7406DD542F6C2054002CB0B6 /* Debug */ = {
@@ -240,7 +384,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"ASSETCATALOG_COMPILER_APPICON_NAME[sdk=iphoneos*]" = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
@@ -272,6 +418,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
@@ -298,6 +445,84 @@
 			};
 			name = Release;
 		};
+		74C89A972F7874A2002A8BBF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = agi.HarmonicaTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Harmonica.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Harmonica";
+			};
+			name = Debug;
+		};
+		74C89A982F7874A2002A8BBF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = agi.HarmonicaTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Harmonica.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Harmonica";
+			};
+			name = Release;
+		};
+		74C89AD22F79AD7C002A8BBF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = agi.HarmonicaUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Harmonica;
+			};
+			name = Debug;
+		};
+		74C89AD32F79AD7C002A8BBF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = agi.HarmonicaUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Harmonica;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -315,6 +540,24 @@
 			buildConfigurations = (
 				7406DD572F6C2054002CB0B6 /* Debug */,
 				7406DD582F6C2054002CB0B6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		74C89A962F7874A2002A8BBF /* Build configuration list for PBXNativeTarget "HarmonicaTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				74C89A972F7874A2002A8BBF /* Debug */,
+				74C89A982F7874A2002A8BBF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		74C89AD12F79AD7C002A8BBF /* Build configuration list for PBXNativeTarget "HarmonicaUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				74C89AD22F79AD7C002A8BBF /* Debug */,
+				74C89AD32F79AD7C002A8BBF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

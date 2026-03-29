@@ -13,7 +13,7 @@
         <attribute name="specs_weight_kg" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="userEmail" optional="YES" attributeType="String"/>
     </entity>
-    <entity name="Product" representedClassName="Product" syncable="YES" codeGenerationType="class">
+    <entity name="FavoriteItem" representedClassName="FavoriteItem" syncable="YES" codeGenerationType="class">
         <attribute name="brand" optional="YES" attributeType="String"/>
         <attribute name="category" optional="YES" attributeType="String"/>
         <attribute name="id" optional="YES" attributeType="String"/>
@@ -24,5 +24,6 @@
         <attribute name="specs_dimensions_cm" optional="YES" attributeType="String"/>
         <attribute name="specs_primary_material" optional="YES" attributeType="String"/>
         <attribute name="specs_weight_kg" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="userEmail" optional="YES" attributeType="String"/>
     </entity>
 </model>

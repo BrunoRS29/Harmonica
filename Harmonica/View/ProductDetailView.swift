@@ -3,6 +3,7 @@ import SwiftUI
 struct ProductDetailView: View {
     let product: ProductModel
     @EnvironmentObject var cartVM: CartViewModel
+    @EnvironmentObject var favoriteVM: FavoriteViewModel
     @Environment(\.dismiss) var dismiss
     
     var body: some View {
@@ -45,10 +46,26 @@ struct ProductDetailView: View {
                     VStack(alignment: .leading, spacing: 16) {
                         
                         // Nome
-                        Text(product.name)
-                            .font(.title)
-                            .fontWeight(.bold)
-                            .foregroundStyle(.white)
+                        HStack(alignment: .top) {
+                            
+                            Text(product.name)
+                                .font(.title)
+                                .fontWeight(.bold)
+                                .foregroundStyle(.white)
+                            
+                            Spacer()
+                            
+                            Button {
+                                favoriteVM.toggleFavorite(product: product)
+                            } label: {
+                                Image(systemName: favoriteVM.isFavorite(productId: product.id) ? "heart.fill" : "heart")
+                                    .font(.title2)
+                                    .foregroundColor(.red)
+                                    .padding(8)
+                                    .background(Color.white.opacity(0.08))
+                                    .clipShape(Circle())
+                            }
+                        }
                         
                         // Marca e Categoria
                         HStack {
@@ -159,6 +176,7 @@ struct SpecRow: View {
             )
         )
         .environmentObject(CartViewModel())
+        .environmentObject(FavoriteViewModel())
         .preferredColorScheme(.dark)
     }
 }

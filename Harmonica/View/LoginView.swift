@@ -4,6 +4,7 @@ struct LoginView: View {
     @StateObject private var viewModel = LoginViewModel()
     @EnvironmentObject var userSession: UserSession
     @State private var mostrarSenha = false
+    @Environment(\.dismiss) private var dismiss
     
     var body: some View {
         NavigationStack {
@@ -25,6 +26,12 @@ struct LoginView: View {
             .onAppear {
                 if let ultimoEmail = KeychainHelper.getLastEmail() {
                     viewModel.carregarCredenciais(email: ultimoEmail)
+                }
+            }
+            // ✅ Adicionar: Observar sucesso do login
+            .onChange(of: viewModel.loginSucesso) { _, sucesso in
+                if sucesso {
+                    dismiss() // Fecha a tela de login
                 }
             }
         }
@@ -61,7 +68,7 @@ struct LoginView: View {
                     .font(.caption)
                     .foregroundStyle(.white.opacity(0.8))
                 
-                TextField("email@example.com", text: $viewModel.email)
+                TextField("Seu email", text: $viewModel.email)
                     .foregroundStyle(.white.opacity(0.5))
                     .padding()
                     .background(Color.white.opacity(0.1))

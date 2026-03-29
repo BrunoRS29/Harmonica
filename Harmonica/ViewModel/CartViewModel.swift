@@ -10,13 +10,17 @@ class CartViewModel: ObservableObject {
     
     @Published var cartItems: [CartItem] = []
     
-    init() {
-        container = NSPersistentContainer(name: "Model")
-        container.loadPersistentStores { _, error in
-            if let error = error {
-                print("❌ Erro no CoreData: \(error.localizedDescription)")
-            } else {
-                print("✅ CoreData (Cart) pronto!")
+    init(container: NSPersistentContainer? = nil) {
+        if let container = container {
+            self.container = container
+        } else {
+            self.container = NSPersistentContainer(name: "Model")
+            self.container.loadPersistentStores { _, error in
+                if let error = error {
+                    print("❌ Erro no CoreData: \(error.localizedDescription)")
+                } else {
+                    print("✅ CoreData (Cart) pronto!")
+                }
             }
         }
     }
@@ -46,21 +50,20 @@ class CartViewModel: ObservableObject {
     //MARK: - Add
     
     func addToCart(product: ProductModel) {
-
         print("🛒 Tentando adicionar:", product.name)
-
+        
         guard let email = userEmail else {
             print("❌ userEmail está NIL")
             return
         }
-
+        
         print("✅ usuário do carrinho:", email)
-
+        
         if isInCart(productId: product.id) {
             print("⚠️ Produto já está no carrinho")
             return
         }
-
+        
         let newItem = CartItem(context: container.viewContext)
         newItem.userEmail = email
         newItem.id = product.id
@@ -73,7 +76,7 @@ class CartViewModel: ObservableObject {
         newItem.specs_primary_material = product.specs.primary_material
         newItem.specs_weight_kg = product.specs.weight_kg
         newItem.specs_dimensions_cm = product.specs.dimensions_cm
-
+        
         save()
     }
     
@@ -108,19 +111,16 @@ class CartViewModel: ObservableObject {
     }
     
     func observeUserSession(_ session: UserSession) {
-
-        // pega o usuário atual imediatamente
         if let email = session.usuarioAtual?.email {
             print("👤 usuário atual detectado:", email)
             self.userEmail = email
             fetchCartItems()
         }
-
-        // observa mudanças futuras
+        
         session.$usuarioAtual
             .sink { [weak self] user in
                 guard let self = self else { return }
-
+                
                 if let email = user?.email {
                     print("🔄 usuário mudou:", email)
                     self.userEmail = email

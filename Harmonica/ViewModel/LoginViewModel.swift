@@ -19,10 +19,7 @@ class LoginViewModel: ObservableObject {
         
         Task {
             do {
-                // ✅ Faz login através do UserSession
                 try userSession.login(email: email, senha: senha)
-                
-                // Salva preferência de lembrar senha
                 userSession.atualizarLembrarSenha(lembrar: lembreSenha)
                 
                 loginSucesso = true
@@ -56,7 +53,7 @@ class LoginViewModel: ObservableObject {
         }
     }
     
-    private func validarCampos() -> Bool {
+    func validarCampos() -> Bool {
         guard !email.isEmpty else {
             mensagemErro = "Por favor, insira seu email"
             return false
