@@ -1,6 +1,6 @@
 import XCTest
 
-final class HomeViewUITests: XCTestCase {
+final class HomeViewUITest: XCTestCase {
     
     var app: XCUIApplication!
     

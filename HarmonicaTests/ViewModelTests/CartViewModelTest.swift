@@ -23,8 +23,6 @@ final class CartViewModelTest: XCTestCase {
         super.tearDown()
     }
     
-    // MARK: - Tests
-    
     func test_AddToCart_Success_IncreasesCount() {
         let product = createMockProduct(id: "1", name: "Guitarra", price: 1000)
         
@@ -99,8 +97,6 @@ final class CartViewModelTest: XCTestCase {
         
         XCTAssertEqual(viewModel.userEmail, "newuser@test.com")
     }
-    
-    // MARK: - Helper
     
     private func createMockProduct(id: String, name: String, price: Int) -> ProductModel {
         ProductModel(

@@ -15,8 +15,6 @@ struct ProfileView: View {
                 
                 ScrollView {
                     VStack(spacing: 24) {
-                        
-                        // Header
                         VStack(spacing: 12) {
                             
                             ZStack {
@@ -41,7 +39,6 @@ struct ProfileView: View {
                         .padding(.top, 20)
                         .padding(.horizontal)
                         
-                        // FAVORITOS
                         VStack(alignment: .leading, spacing: 16) {
                             
                             HStack {
@@ -94,7 +91,6 @@ struct ProfileView: View {
                             }
                         }
                         
-                        // OPÇÕES
                         VStack(spacing: 12) {
                             
                             ProfileOptionRow(

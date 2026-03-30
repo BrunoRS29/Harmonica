@@ -19,8 +19,6 @@ final class ProductViewModelTest: XCTestCase {
         super.tearDown()
     }
     
-    // MARK: - Tests: getProducts (Success)
-    
     func test_LoadProducts_Success_ReturnsProducts() async {
         let mockProduct1 = createMockProduct(id: "1", name: "Guitarra")
         let mockProduct2 = createMockProduct(id: "2", name: "Violão")
@@ -48,8 +46,6 @@ final class ProductViewModelTest: XCTestCase {
         XCTAssertNil(viewModel.errorMessage)
     }
     
-    // MARK: - Tests: getProducts (Failure)
-    
     func test_LoadProducts_Failure_NetworkError() async {
         mockRepository.shouldFailGetProducts = true
         mockRepository.errorToThrow = NetworkError.invalidResponse
@@ -75,8 +71,6 @@ final class ProductViewModelTest: XCTestCase {
         XCTAssertFalse(viewModel.isLoading)
     }
     
-    // MARK: - Tests: postProduct (Success)
-    
     func test_CreateProduct_Success() async {
         let productToCreate = createMockProduct(id: "3", name: "Bateria")
         mockRepository.mockCreatedProduct = productToCreate
@@ -92,8 +86,6 @@ final class ProductViewModelTest: XCTestCase {
         XCTAssertEqual(mockRepository.lastPostedProduct?.name, "Bateria")
     }
     
-    // MARK: - Tests: postProduct (Failure)
-    
     func test_CreateProduct_Failure() async {
         let productToCreate = createMockProduct(id: "4", name: "Piano")
         mockRepository.shouldFailPostProduct = true
@@ -108,16 +100,12 @@ final class ProductViewModelTest: XCTestCase {
         XCTAssertFalse(viewModel.isLoading)
     }
     
-    // MARK: - Tests: Loading State
-    
     func test_LoadProducts_SetsLoadingStateCorrectly() {
         viewModel.loadProducts()
         
         XCTAssertTrue(viewModel.isLoading)
         XCTAssertNil(viewModel.errorMessage)
     }
-    
-    // MARK: - Helper Methods
     
     private func createMockProduct(id: String, name: String) -> ProductModel {
         ProductModel(

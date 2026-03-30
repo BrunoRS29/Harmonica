@@ -26,7 +26,6 @@ struct AnnounceView: View {
                 ScrollView {
                     VStack(spacing: 20) {
                         
-                        // Header
                         VStack(alignment: .leading, spacing: 8) {
                             Text("Anunciar Produto")
                                 .font(.title)
@@ -41,10 +40,8 @@ struct AnnounceView: View {
                         .padding(.horizontal)
                         .padding(.top, 20)
                         
-                        // Formulário
                         VStack(spacing: 16) {
                             
-                            // Informações Básicas
                             SectionHeader(title: "Informações Básicas")
                             
                             CustomTextField(
@@ -77,7 +74,6 @@ struct AnnounceView: View {
                                 text: $image
                             )
                             
-                            // Especificações
                             SectionHeader(title: "Especificações")
                             
                             CustomTextField(

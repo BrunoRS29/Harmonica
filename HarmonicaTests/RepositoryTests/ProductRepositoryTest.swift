@@ -15,8 +15,6 @@ final class ProductRepositoryTest: XCTestCase {
         super.tearDown()
     }
     
-    // MARK: - GET Tests
-    
     @MainActor
     func test_GetProducts_ReturnsValidData() async throws {
         let products = try await repository.getProducts()
@@ -48,8 +46,6 @@ final class ProductRepositoryTest: XCTestCase {
         XCTAssertLessThan(duration, 5.0)
     }
     
-    // MARK: - POST Tests
-    
     @MainActor
     func test_PostProduct_CreatesNewProduct() async throws {
         let newProduct = ProductModel(
@@ -74,8 +70,6 @@ final class ProductRepositoryTest: XCTestCase {
         XCTAssertEqual(createdProduct?.name, "Test Guitar")
         XCTAssertEqual(createdProduct?.price, 999)
     }
-    
-    // MARK: - Integration Test
     
     @MainActor
     func test_PostAndGet_ProductAppearsInList() async throws {

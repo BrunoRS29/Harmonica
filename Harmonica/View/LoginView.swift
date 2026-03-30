@@ -28,10 +28,9 @@ struct LoginView: View {
                     viewModel.carregarCredenciais(email: ultimoEmail)
                 }
             }
-            // ✅ Adicionar: Observar sucesso do login
             .onChange(of: viewModel.loginSucesso) { _, sucesso in
                 if sucesso {
-                    dismiss() // Fecha a tela de login
+                    dismiss() 
                 }
             }
         }

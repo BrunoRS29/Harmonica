@@ -19,8 +19,6 @@ final class LoginViewModelTest: XCTestCase {
         super.tearDown()
     }
     
-    // MARK: - Tests: Validação
-    
     func test_ValidarCampos_WithEmptyEmail_ReturnsFalse() {
         viewModel.email = ""
         viewModel.senha = "123456"
@@ -60,8 +58,6 @@ final class LoginViewModelTest: XCTestCase {
         XCTAssertTrue(result)
         XCTAssertNil(viewModel.mensagemErro)
     }
-    
-    // MARK: - Tests: Login
     
     func test_FazerLogin_WithValidCredentials_Success() async {
         viewModel.email = "test@test.com"
@@ -126,8 +122,6 @@ final class LoginViewModelTest: XCTestCase {
         
         XCTAssertTrue(viewModel.isLoading)
     }
-    
-    // MARK: - Tests: Estado Inicial
     
     func test_InitialState_AllFieldsEmpty() {
         XCTAssertEqual(viewModel.email, "")

@@ -6,7 +6,6 @@ struct MainView: View {
     
     var body: some View {
         ZStack {
-            // Conteúdo baseado na tab selecionada
             switch selectedTab {
             case 0:
                 HomeView()
@@ -18,7 +17,6 @@ struct MainView: View {
                 HomeView()
             }
             
-            // NavBar fixo embaixo
             VStack {
                 Spacer()
                 NavBar(selectedTab: $selectedTab)

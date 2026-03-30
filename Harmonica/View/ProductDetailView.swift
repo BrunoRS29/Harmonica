@@ -13,7 +13,6 @@ struct ProductDetailView: View {
             ScrollView {
                 VStack(alignment: .leading, spacing: 20) {
                     
-                    // Imagem do produto
                     GeometryReader { geometry in
                         AsyncImage(url: URL(string: product.image)) { phase in
                             switch phase {
@@ -45,7 +44,6 @@ struct ProductDetailView: View {
                     
                     VStack(alignment: .leading, spacing: 16) {
                         
-                        // Nome
                         HStack(alignment: .top) {
                             
                             Text(product.name)
@@ -67,7 +65,6 @@ struct ProductDetailView: View {
                             }
                         }
                         
-                        // Marca e Categoria
                         HStack {
                             Label(product.brand, systemImage: "tag")
                             Spacer()
@@ -75,7 +72,6 @@ struct ProductDetailView: View {
                         }
                         .foregroundStyle(.white.opacity(0.7))
                         
-                        // Preço
                         Text("R$ \(formatPrice(product.price))")
                             .font(.largeTitle)
                             .fontWeight(.bold)
@@ -84,7 +80,6 @@ struct ProductDetailView: View {
                         Divider()
                             .background(Color.white.opacity(0.2))
                         
-                        // Especificações
                         VStack(alignment: .leading, spacing: 12) {
                             Text("Especificações")
                                 .font(.title2)
@@ -100,7 +95,6 @@ struct ProductDetailView: View {
                         .background(Color.white.opacity(0.05))
                         .cornerRadius(12)
                         
-                        // Botão de adicionar ao carrinho
                         Button {
                             if cartVM.isInCart(productId: product.id) {
                                 print("⚠️ Produto já está no carrinho")
@@ -126,7 +120,7 @@ struct ProductDetailView: View {
                     }
                     .padding(.horizontal)
                 }
-                .padding(.bottom, 100) // ← Aumentado para compensar tab bar
+                .padding(.bottom, 100)
             }
         }
         .navigationBarTitleDisplayMode(.inline)
@@ -140,7 +134,6 @@ struct ProductDetailView: View {
     }
 }
 
-// Componente auxiliar para as especificações
 struct SpecRow: View {
     let title: String
     let value: String
