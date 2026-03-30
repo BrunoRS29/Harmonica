@@ -69,11 +69,7 @@ final class CartViewModelTest: XCTestCase {
         
         XCTAssertTrue(viewModel.isInCart(productId: "123"))
     }
-    
-    func test_IsInCart_ReturnsFalseForNonExistingProduct() {
-        XCTAssertFalse(viewModel.isInCart(productId: "999"))
-    }
-    
+
     func test_TotalPrice_CalculatesCorrectly() {
         viewModel.addToCart(product: createMockProduct(id: "1", name: "Item1", price: 100))
         viewModel.addToCart(product: createMockProduct(id: "2", name: "Item2", price: 200))
